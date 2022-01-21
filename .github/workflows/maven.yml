@@ -23,4 +23,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file Tadvaya/mirage-search-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-search/pom.xml
