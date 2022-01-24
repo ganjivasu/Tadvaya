@@ -45,11 +45,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.blorecomp.server.version1</groupId>
-			<artifactId>mirage-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 
 	</dependencies>
 
