@@ -29,6 +29,6 @@ jobs:
         name: my-artifact
         path: "mirage-generate-0.0.1-SNAPSHOT.jar"
         source: "mirage-generate-0.0.1-SNAPSHOT.jar"
-        target: "
+        
     
     
