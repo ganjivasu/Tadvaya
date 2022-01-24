@@ -26,17 +26,19 @@ jobs:
       uses: fifsky/ssh-action@master
       with:
         command: |
-          java -jar mirage-generate-0.0.1-SNAPSHOT.jar
+          cd /home/ubuntu &&
+          java -jar mirage-search-0.0.1-SNAPSHOT.jar &
         host: ${{ secrets.HOSTS }}
         user: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
+        args: "-tt"
     
     - name: Build artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: "mirage-generate-0.0.1-SNAPSHOT.jar"
-        source: "mirage-generate-0.0.1-SNAPSHOT.jar"
+        path: "mirage-search-0.0.1-SNAPSHOT.jar"
+        source: "mirage-search-0.0.1-SNAPSHOT.jar"
         target: "/var/www/html"
     
     
