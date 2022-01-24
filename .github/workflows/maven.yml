@@ -20,15 +20,13 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      #run: mvn clean 
-      run: mvn -B package --file mirage-search-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-search/pom.xml 
+    
     - name: Build artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: "mirage-generate-0.0.1-SNAPSHOT.jar"
         source: "mirage-generate-0.0.1-SNAPSHOT.jar"
-        
+        target: "/var/www/html"
     
     
