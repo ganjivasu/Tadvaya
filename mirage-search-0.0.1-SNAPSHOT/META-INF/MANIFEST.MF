@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Implementation-Title: mirage-search
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ssrivatsa
+Implementation-Vendor-Id: com.blorecomp.server.version1.serverversion1
+Spring-Boot-Version: 2.0.0.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: com.blorecomp.server.version1.serverversion1.miragesearch
+ .MirageSearchApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.6.0
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/mirage-search
+
