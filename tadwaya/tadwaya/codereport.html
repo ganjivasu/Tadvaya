@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" /> -->
+		<link rel="stylesheet" href="assets/css/lib/bootstrap-material-design.css" />
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo">Tadvaya</a>
+					<nav id="nav" class="navbar navbar-dark">
+						<a id="menu-dashboard-id" href="dashboard.html">Dashbaord</a>
+						<!-- <a id="menu-download-id" href="downloads.html">Downloads</a> -->
+						<a href="support.html">Support</a>
+						<a id="menu-logout-id" href="login.html">Logout</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<!-- Form -->
+					<section>
+						<div id="card-wrapper">
+							<!--Handlebar templates start-->
+							<script id="codereport-card-template" type="text/x-handlebars-template">
+								<div class="jumbotron" data-aos="flip-left" data-aos-duration="3000">
+									<h1 class="display-4 text-center">{{dashboardOrder.name}}</h1>
+									<hr class="my-4">
+
+									<ul class="list-group">
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Count
+											<span class="badge badge-pill badge-info">{{dashboardOrder.requestedAmount}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											valid Scans
+											<span class="badge badge-pill badge-success">{{dashboardOrder.validScans}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Fake Scans
+											<span class="badge badge-pill badge-danger">{{dashboardOrder.fakeScans}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Order Number
+											<span class="badge badge-pill badge-info">{{dashboardOrder.orderNo}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Product ID
+											<span class="badge badge-pill badge-info">{{dashboardOrder.extProductID}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Product Type
+											<span class="badge badge-pill badge-info">{{dashboardOrder.extProductType}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											SKUID
+											<span class="badge badge-pill badge-info">{{dashboardOrder.extSKUID}}</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-right">
+											Date
+											<span class="badge badge-pill badge-secondary">{{dashboardOrder.displayDate}}</span>
+										</li>
+										{{#if dashboardOrder.mapOfExtExtras}}
+										<li class="list-group-item d-flex justify-content-between align-items-right">
+											<label>Customer Info Details</label>
+										</li>
+										{{/if}}
+										{{#each dashboardOrder.mapOfExtExtras}}
+											<li class="list-group-item d-flex justify-content-between align-items-center">
+												{{@key}}
+												<span class="badge badge-pill badge-secondary">{{this}}</span>
+											</li>
+										{{/each}}
+										{{#if dashboardOrder.mapOfExtras}}
+										<li class="list-group-item d-flex justify-content-between align-items-right">
+											<label>Company Info Details</label>
+										</li>
+										{{/if}}
+										{{#each dashboardOrder.mapOfExtras}}
+											<li class="list-group-item d-flex justify-content-between align-items-center">
+												{{@key}}
+												<span class="badge badge-pill badge-secondary">{{this}}</span>
+											</li>
+										{{/each}}
+									</ul>
+									<hr class="my-4">
+									<a href="downloads.html" class="btn btn-primary btn-lg active text-center" role="button" aria-pressed="true">Download</a>
+									<hr class="my-4">
+									<br>
+									{{#each codeDetails}}
+									<div class="card place-locations" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+										<div class="card-header">Code: {{this.code}}</div>
+										<div class="card-body text-dark">
+											Scanned Locations:
+											Start &#x27A1;
+											{{#each this.places}}
+												<a href="{{this.href}}" class="badge badge-{{this.fake}}" target="_blank">{{this.name}}</a> &#x27A1;
+											{{/each}}
+												End
+										</div>
+									</div>
+									{{/each}}
+								</div>
+							</script>
+							<!--Handlebar templates end-->
+						</div>
+					</section>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="copyright">
+						Copyright &copy; Tadvaya @2018  All rights reserved.
+					</div>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+			<script src="assets/js/lib/bootstrap-material-design.js"></script>
+			<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+			<script src="assets/js/lib/handlebars.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/lib/jquery.userTimeout.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/common.js"></script>
+			<script src="assets/js/codereport.js"></script>
+
+	</body>
+</html>

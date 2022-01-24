@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/lib/bootstrap-material-design.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" /> -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+		<link rel="stylesheet" href="assets/css/lib/bootstrap-material-design.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo">Tadvaya</a>
+					<nav id="nav" class="navbar navbar-dark">
+						<a id="menu-dashboard-id" href="dashboard.html">Dashbaord</a>
+						<a href="support.html">Support</a>
+						<!-- <a id="menu-order-id" href="orders.html">Orders</a> -->
+						<!-- <a id="menu-report-id" href="report.html">Reports</a> -->
+						<!-- <a id="menu-download-id" href="downloads.html">Downloads</a> -->
+						<!-- <a id="menu-search-id" href="search.html">Search</a> -->
+						<a id="menu-logout-id" href="login.html">Logout</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<!-- Form -->
+					<section>
+						<h3 class="text-center  text-monospace dashboard-header-padding title-class">Create Parent Order</h3>
+
+							<div class="row uniform 25%" >
+									<div  class="row uniform 50%" id="create-order-container">
+
+											<div class="input-group input-group-sm mb-6">
+												<div class="input-group-prepend">
+													<span class="input-group-text" id="inputGroup-sizing-sm">Product Name</span>
+												</div>
+												<input type="text" id="product-name"  disabled="disabled"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+											<div class="input-group input-group-sm mb-6">
+												<div class="input-group-prepend">
+													<span class="input-group-text" id="inputGroup-sizing-sm">Product Id</span>
+												</div>
+												<input type="text" id="product-code" disabled="disabled" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+											<div class="input-group input-group-sm mb-6">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="inputGroup-sizing-sm">Product Type</span>
+													</div>
+													<input type="text" id="product-type" disabled="disabled" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+											<div class="input-group input-group-sm mb-6">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="inputGroup-sizing-sm">Parent Product Count</span>
+													</div>
+													<input type="text" id="product-count"  autofocus class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+											<div class="input-group input-group-sm mb-6">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="inputGroup-sizing-sm">Manufacturing Date</span>
+													</div>
+													<input type="text" id="add-manf-date" disabled="disabled" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+											<div class="input-group input-group-sm mb-6">
+													<div class="input-group-prepend">
+														<span class="input-group-text" id="inputGroup-sizing-sm">Expiry Date</span>
+													</div>
+													<input type="text" id="add-expiry-date" disabled="disabled" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											</div>
+
+										</div>
+
+
+								<div class="6u$">
+									<ul class="actions">
+											<li><input id="create-parent-order-id" type="submit" value="Create Box Order" class="special" /></li>
+									</ul>
+								</div>
+
+							</div>
+						</section>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="copyright">
+						Copyright &copy; Tadvaya @2018  All rights reserved.
+					</div>
+				</div>
+			</section>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Tadvaya</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="createSuccess-close" >Close</button>
+					</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div id="modal-alert-id" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Tadvaya</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<!-- <script src="assets/js/lib/bootstrap.bundle.js"></script> -->
+			<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+			<script src="assets/js/lib/bootstrap-material-design.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/common.js"></script>
+			<script src="assets/js/createparentorder.js"></script>
+			
+	</body>
+</html>

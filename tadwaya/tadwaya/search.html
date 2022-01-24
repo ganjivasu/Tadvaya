@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo">Tadvaya Admin</a>
+					<nav id="nav">
+						<a href="support.html">Support</a>
+						<a id="menu-order-id" href="orders.html">Orders</a>
+						<!-- <a id="menu-download-id" href="downloads.html">Downloads</a> -->
+						<a id="menu-logout-id" href="login.html">Logout</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<!-- Form -->
+					<section>
+						<h3>Search</h3>
+						<h6 class="search-info">Identify Product - Original/Fake</h6>
+							<div class="row uniform 25%" >
+									<div  class="row uniform 25%" id="search-product-container">
+										<div class="12u 12u$(xsmall)">
+											<input type="text" id="product-id" value="" placeholder="Product ID (Example:12)" />
+										</div>
+										<div class="12u 12u$(xsmall)">
+											<input type="text"  id="product-lat" value="" placeholder="Latitude (Example:34.12)" />
+										</div>
+										<div class="12u 12u$(xsmall)">
+											<input type="text" id="product-long" value="" placeholder="Longitude (Example:12.34)" />
+										</div>
+										<div class="12u 12u$(xsmall)">
+												<input type="text" id="product-clientid" value="" placeholder="Client ID (Example:5678)" />
+										</div>
+								</div>
+								<div class="12u$">
+
+									<ul class="actions">
+											<li><input id="search-product" type="submit" value="Find" class="special" onclick="checkSearch()" /></li>
+									</ul>
+
+								</div>
+							</div>
+						</section>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="copyright">
+						Copyright &copy; Tadvaya @2018  All rights reserved.
+					</div>
+				</div>
+			</section>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title">Tadvaya</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <p>Product Found.</p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-primary" data-dismiss="modal" id="searchSuccess-close" >Close</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/lib/bootstrap.bundle.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/common.js"></script>
+
+			<script>
+				function checkSearch(){
+				
+				var searchProductData = {
+				"id": document.getElementById("product-id").value,
+				"latitude": document.getElementById("product-lat").value,
+				"longitude": document.getElementById("product-long").value,
+				"clientId": document.getElementById("product-clientid").value,
+				"deviceID" : "7d0c9373-8670-42a7-ade3-120bf7d300fa"
+				};
+				console.log("searchproductdata",searchProductData);
+				var authToken = localStorage.getItem('authToken');
+				console.log("authtoken",authToken);
+				$.ajax({
+				url: 'http://13.126.56.1:8142/user/search',
+				beforeSend: function(request) {
+					request.setRequestHeader("authToken", authToken);
+					request.setRequestHeader("content-type", 'application/json');
+				  },
+				type: 'POST',
+				dataType: 'json',
+				data: JSON.stringify(searchProductData),
+
+				success: function(data) {
+					var popupStatus =  data.status;
+					var popupMsg =  data.message;
+					$('#myModal .modal-body').text(["Status =",data.message,"Name =",data.name,"Product Details 1 =",data.prodDetails[1],"Product Details 2 =",data.prodDetails[2]]);
+					$('#myModal').modal('show');
+					console.log('Tadvaya: Success - ', data);
+				},
+				error: function(data) {
+					console.log('failure: ', data);
+				}
+			  });
+		$(document).on('click', '#searchSuccess-close', function() {
+			$('#search-product-container').find('input:text').val('');  
+		});
+
+	
+				}
+			</script>
+			
+			
+	</body>
+</html>

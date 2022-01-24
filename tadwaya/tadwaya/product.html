@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+	</head>
+    
+
+<body>
+    <header id="header">
+        <div class="inner">
+            <a href="#" class="logo">Tadvaya Admin</a>
+            <nav id="nav">
+                <a href="support.html">Support</a>
+                <a id="menu-logout-id" href="login.html">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    <section id="main" >
+        <div>
+            <div class="table-wrapper">
+                    <p> Status : <span id="product_status"></span></p>
+                    <p> Product Name :  <span id="product_name"></span></p>
+                    <p>Manufactured Date :<span id="product_man_date"></span></p>
+                    <p>Expiry date : <span id="product_exp_date"></span></p>
+                    <div id="product_extra_details"></div>
+                <!--Handlebar templates end-->
+            </div>
+        </section>
+    </section>
+
+    <section id="footer">
+        <div class="inner">
+            <div class="copyright">
+                Copyright &copy; Tadvaya @2018  All rights reserved.
+            </div>
+    </div>
+    </section>
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/lib/bootstrap.bundle.js"></script>
+    <script src="assets/js/lib/handlebars.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+            var getQueryStringValue = function(parameter) {
+            var currentPageURL = window.location.search.substring(1);
+            var queryString = currentPageURL.split('&');
+            var getParameter;
+            var i;
+
+            for (i = 0; i < queryString.length; i++) {
+            getParameter = queryString[i].split('=');
+
+            if (getParameter[0] === parameter) {
+            return getParameter[1] === undefined ? true : decodeURIComponent(getParameter[1]);
+            }
+            }
+            };
+        var searchdata;
+        var codestr = getQueryStringValue('codestr');
+        var orderid = getQueryStringValue('orderId');
+        console.log(codestr)
+        console.log(orderid)
+        var searchProductData = {
+        "id": codestr,
+        "deviceID" : "7d0c9373-8670-42a7-ade3-120bf7d300fa"
+        };
+        console.log("searchproductdata",searchProductData);
+        var authToken = localStorage.getItem('authToken');
+        //var authToken1 = "bf00f46a-e397-4c51-937a-185c8d46ecec";
+        console.log("authtoken",authToken);
+        $.ajax({
+        url: 'http://13.126.56.1:8142/user/search',
+        beforeSend: function(request) {
+            request.setRequestHeader("authToken", authToken);
+            request.setRequestHeader("content-type", 'application/json');
+          },
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(searchProductData),
+
+        success: function(data) {
+            document.getElementById("product_status").innerHTML = data.message;
+            document.getElementById("product_name").innerHTML = data.name;
+            var split1 = data.prodDetails[1].split(":");
+            console.log(split1)
+            document.getElementById("product_man_date").innerHTML = split1[1];
+            var split2= data.prodDetails[2].split(":");
+            document.getElementById("product_exp_date").innerHTML = split2[1];
+            
+        },
+        error: function(data) {
+            console.log('failure: ', data);
+        }
+      });   
+      $.ajax({
+        url: 'http://13.126.56.1:8132/generate/user/codeReport?orderId='+orderid,
+        beforeSend: function(request) {
+            request.setRequestHeader("authToken", authToken);
+            request.setRequestHeader("content-type", 'application/json');
+          },
+        type: 'POST',
+        success: function(data) {
+            let text = '';
+            var extras = data.dashboardOrder['extExtras'].split("|");
+            for(let a = 0; a < extras.length; a++ ) {
+                text += extras[a].split(' ') + '</br>';
+            }
+            document.getElementById("product_extra_details").innerHTML = text;
+            
+        },
+        error: function(data) {
+            console.log('failure: ', data);
+        }
+      });     
+    </script>
+</body>
+
+</html>

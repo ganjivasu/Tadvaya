@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo">Tadvaya Admin</a>
+					<nav id="nav">
+						<a id="menu-dashboard-id" href="dashboard.html">Dashbaord</a>
+						<a href="support.html">Support</a>
+						<a id="menu-logout-id" href="login.html">Logout</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<h4>Downloads</h4>
+					<div class="table-wrapper">
+						<!--Handlebar templates start-->
+						<script id="download-template" type="text/x-handlebars-template">
+							<table class="alt">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each downloaddata}}
+									<tr>
+										<td>{{@key}}</td>
+										<td><a class="download-file">{{this}}</a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</script>
+						<!--Handlebar templates end-->
+					</div>
+				</section>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="copyright">
+						Copyright &copy; Tadvaya @2018  All rights reserved.
+					</div>
+			</div>
+			</section>
+
+
+		<!-- Modal -->
+		<div id="modal-alert-id" class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Tadvaya</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/lib/jquery.min.js"></script>
+			<script src="assets/js/lib/bootstrap.bundle.js"></script>
+			<script src="assets/js/lib/handlebars.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/lib/jquery.userTimeout.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/common.js"></script>
+			<script src="assets/js/downloads.js"></script>
+
+	</body>
+</html>

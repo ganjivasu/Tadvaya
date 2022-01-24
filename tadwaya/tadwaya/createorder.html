@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tadvaya Admin: identify Fake Product</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="images/search.png" type="image/gif" sizes="16x16">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" /> -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+		<link rel="stylesheet" href="assets/css/lib/bootstrap-material-design.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="logo">Tadvaya</a>
+					<nav id="nav" class="navbar navbar-dark">
+						<a id="menu-dashboard-id" href="dashboard.html">Dashbaord</a>
+						<a href="support.html">Support</a>
+						<!-- <a id="menu-order-id" href="orders.html">Orders</a> -->
+						<!-- <a id="menu-report-id" href="report.html">Reports</a> -->
+						<!-- <a id="menu-download-id" href="downloads.html">Downloads</a> -->
+						<!-- <a id="menu-search-id" href="search.html">Search</a> -->
+						<a id="menu-logout-id" href="login.html">Logout</a>
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<!-- Form -->
+					<section>
+						<div class="jumbotron">
+							<h3 class="display-4 text-center">Create Order</h3>
+							<hr class="my-4">
+							<div class="padder create-order-section">
+							<div class="row uniform 25%" >
+
+								<div class="card create-order-box">
+									<div class="card-body">
+										<h5 class="card-title">Company Info</h5>
+										<h6 class="card-subtitle mb-2 text-muted text-normal">Add specific company details for the product. Add additional details from the drop down "Add Fields"</h6>
+										<h6 class="card-subtitle mb-2 text-muted text-normal">The details are viewable only to company.</h6>
+											<div  class="row uniform 25%" id="create-order-container">
+
+												<div class="12u 12u$(xsmall)">
+													<label>Product Name</label> <sup class="star">*</sup>
+													<input type="text" id="product-name" value="" placeholder="Ex:Colgate 250g" />
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>Product ID</label><sup class="star">*</sup>
+													<input type="text" id="product-code" value="" placeholder="Ex:GEK101" />
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>Product Type </label><sup class="star">*</sup>
+													<input type="text"  id="product-type" value="" placeholder="Ex:GEK101" />
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>SKUID</label><sup class="star">*</sup>
+													<input type="text"  id="product-skuid" value="" placeholder="Ex:SKU1001" />
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>Product Count</label> <sup class="star">*</sup>
+													<input type="text" id="product-count" value="" placeholder="Ex:100" />
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>Manufacturing Date</label> <sup class="star">*</sup>
+													<input type="date" id="add-manf-date" value="" placeholder="Manufacturing Date: DD-MM-YYYY"/>
+												</div>
+												<div class="12u 12u$(xsmall)">
+													<label>Expiry Date</label> <sup class="star">*</sup>
+													<input type="date" id="add-expiry-date" value="" placeholder="Expiry Date: DD-MM-YYYY" />
+												</div>
+												<div class="12u 12u$(xsmall)" style="display: none;">
+													<label>Box Order</label>
+													<input type="checkbox" id="is-box-order" value="" placeholder="box-order"/>
+												</div>
+												<div class="12u 12u$(xsmall)" style="display: none;">
+													<label>2 Step Verification</label>
+													<input type="checkbox" id="is-2-step-verification" value="" placeholder="2step-verification"/>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="card create-order-box">
+										<div class="card-body">
+											<h5 class="card-title">Customer Visible Details</h5>
+											<h6 class="card-subtitle mb-2 text-muted text-normal">Add detail from the drop down "Add Fields"</h6>
+											<h6 class="card-subtitle mb-2 text-muted text-normal">The details are viewable only to customers.</h6>
+											<div  class="row uniform 25%" id="create-order-container-customer-facing">
+											</div>
+										</div>
+									</div>
+
+
+							<div class="12u$ create-order-buttons">
+
+								<div class="dropdown add-fields-container">
+									<input type="submit" id="dropdownMenu2" data-toggle="dropdown"  value="Add fields" aria-haspopup="true" aria-expanded="false" class="special" />
+									<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+										<button class="dropdown-item-generic" type="button" data-text="Generic" data-id="add-generic" data-class="add-generic-class">Generic (Company Info)</button>
+										<button class="dropdown-item-generic-customer-facing" type="button" data-text="Generic Customer Facing" data-id="add-generic-customer-facing" data-class="add-generic-class-customer-facing">Generic(Customer Info)</button>
+									</div>
+								</div>
+
+								<ul class="actions">
+										<li><input id="create-order-id" type="submit" value="Create" class="special" /></li>
+								</ul>
+
+							</div>
+						</div>
+						</div>
+						</div>
+					</section>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<div class="copyright">
+						Copyright &copy; Tadvaya @2018  All rights reserved.
+					</div>
+				</div>
+			</section>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title">Tadvaya</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  <p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-primary" data-dismiss="modal" id="createSuccess-close" >Close</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+			<!-- Modal -->
+			<div id="modal-alert-id" class="modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Tadvaya</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+					</div>
+					</div>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<!-- <script src="assets/js/lib/bootstrap.bundle.js"></script> -->
+			<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+			<script src="assets/js/lib/bootstrap-material-design.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/lib/jquery.userTimeout.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/common.js"></script>
+			<script src="assets/js/createorder.js"></script>
+			
+	</body>
+</html>
