@@ -23,11 +23,11 @@ jobs:
         
     - name: Build with Maven
 #       run: mvn clean package
-      run: mvn -B clean install --file mirage-generate-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-generate/pom.xml
+      run: mvn -B install --file mirage-generate-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-generate/pom.xml
            
       
     - name: Build with Maven 2
-      run: mvn -B clean install --file mirage-search-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-search/pom.xml
+      run: mvn -B install --file mirage-search-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-search/pom.xml
       
 #     - name: Run a script on remote server (start the application)
 #       if: always()
