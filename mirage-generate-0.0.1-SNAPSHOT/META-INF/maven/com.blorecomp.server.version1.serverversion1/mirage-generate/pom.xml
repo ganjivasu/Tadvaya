@@ -16,7 +16,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<start-class>com.blorecomp.server.version1.serverversion1</start-class>
+		<maven.compiler.source>15</maven.compiler.source>
+        	<maven.compiler.target>15</maven.compiler.target>
 		<version>0.0.1-SNAPSHOT</version>
 		<groupId>com.blorecomp.server.version1.serverversion1</groupId>
 		<artifactId>mirage-generate</artifactId>
