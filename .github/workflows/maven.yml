@@ -46,7 +46,7 @@ jobs:
 #         name: my-artifact
 #         path: "mirage-search-0.0.1-SNAPSHOT.jar"
 #         source: "mirage-search-0.0.1-SNAPSHOT.jar"
-#         target: "/var/www/html"
+#         target: "/home/ubuntu"
 #         host: ${{ secrets.HOSTS }}
 #         user: ${{ secrets.SSH_USER }}
 #         key: ${{ secrets.SSH_PRIVATE_KEY }}
