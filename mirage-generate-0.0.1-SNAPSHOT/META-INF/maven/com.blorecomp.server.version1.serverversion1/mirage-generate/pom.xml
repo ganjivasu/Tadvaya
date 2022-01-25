@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.blorecomp.server.version1.serverversion1</start-class>
 	</properties>
 
 	<dependencies>
@@ -45,7 +46,11 @@
 			<scope>test</scope>
 		</dependency>
 		
-                
+                <dependency>
+			<groupId>com.blorecomp.server.version1</groupId>
+			<artifactId>mirage-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		
 	</dependencies>
 
