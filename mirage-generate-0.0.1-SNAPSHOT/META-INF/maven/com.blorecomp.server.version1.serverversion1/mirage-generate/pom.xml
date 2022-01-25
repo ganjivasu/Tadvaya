@@ -51,11 +51,6 @@
 			<artifactId>mirage-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>com.blorecomp.server.version1.serverversion1</groupId>
-			<artifactId>mirage-core</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
