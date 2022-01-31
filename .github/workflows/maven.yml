@@ -42,10 +42,10 @@ jobs:
     
     - name: Run a script on remote server (start the application)
       if: always()
-      uses: ganjivasu/Tadvaya@master
+      uses: fifsky/ssh-action@master
       with:
         command: |
-          cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
+          cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
         HOST: ${{ secrets.HOST }}
         USER: ${{ secrets.SSH_USER }}
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
