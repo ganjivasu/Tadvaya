@@ -42,7 +42,7 @@ jobs:
     
     - name: Run a script on remote server (start the application)
       if: always()
-      uses: fifsky/ssh-action@master
+      uses: fifsky/ssh-action@main
       with:
         command: |
           cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
