@@ -39,17 +39,26 @@ jobs:
 #       with:
 #         source: "mirage-search-0.0.1-SNAPSHOT.jar"
 #         target: "ubuntu"
-    
+
     - name: Run a script on remote server (start the application)
       if: always()
       uses: actions/upload-artifact@v2-preview
       with:
         command: |
           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
-        HOST: ${{ secrets.HOST }}
-        USER: ${{ secrets.SSH_USER }}
-        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        args: "-tt"
+        name: ‘mirage-generate-0.0.1-SNAPSHOT.jar'
+        path: /home/ubuntu
+        
+#     - name: Run a script on remote server (start the application)
+#       if: always()
+#       uses: actions/upload-artifact@v2-preview
+#       with:
+#         command: |
+#           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
+#         HOST: ${{ secrets.HOST }}
+#         USER: ${{ secrets.SSH_USER }}
+#         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+#         args: "-tt"
     
 #     - name: Build artifact
 #       uses: actions/upload-artifact@v2
