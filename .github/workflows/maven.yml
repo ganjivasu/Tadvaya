@@ -27,7 +27,7 @@ jobs:
            
       
     - name: Build with Maven 2
-      run: mvn -B install --file mirage-search-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-search/pom.xml
+      run: mvn -B install --file mirage-generate-0.0.1-SNAPSHOT/META-INF/maven/com.blorecomp.server.version1.serverversion1/mirage-generate/pom.xml
     
 #     - name: copy file via ssh key
 #       uses: appleboy/scp-action@master
