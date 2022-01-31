@@ -42,7 +42,7 @@ jobs:
     
     - name: Run a script on remote server (start the application)
       if: always()
-      uses: ganjivasu/ssh-action@master
+      uses: ganjivasu/Tadvaya@main
       with:
         command: |
           cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
