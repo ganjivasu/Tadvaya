@@ -39,7 +39,7 @@ jobs:
       env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
-#         PORT: ${{ secrets.PORT }}
+        PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.KEY }}
       with:
         source: "mirage-search-0.0.1-SNAPSHOT.jar"
