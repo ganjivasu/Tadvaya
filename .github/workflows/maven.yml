@@ -47,7 +47,7 @@ jobs:
         command: |
           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
         name: ‘mirage-generate-0.0.1-SNAPSHOT.jar'
-        path: 'ubuntu'
+        path: 'mirage-generate-0.0.1-SNAPSHOT.jar'
         
 #     - name: Run a script on remote server (start the application)
 #       if: always()
