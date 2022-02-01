@@ -53,8 +53,8 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v1
       with:
-        command: |
-          cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
+#         command: |
+#           cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
         name: ‘mirage-search-0.0.1-SNAPSHOT.jar'
         path: '/home/ubuntu'
         
