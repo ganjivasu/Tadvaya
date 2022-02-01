@@ -40,7 +40,7 @@ jobs:
 #         source: "mirage-search-0.0.1-SNAPSHOT.jar"
 #         target: "ubuntu"
 
-    - name: Run a script on remote server (start the application)
+    - name: Run a generate script on remote server (start the application)
       if: always()
       uses: actions/upload-artifact@v1
       with:
@@ -48,6 +48,15 @@ jobs:
           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
         name: ‘mirage-generate-0.0.1-SNAPSHOT.jar'
         path: 'mirage-generate-0.0.1-SNAPSHOT.jar'
+        
+    - name: Run a search script on remote server (start the application)
+      if: always()
+      uses: actions/upload-artifact@v1
+      with:
+        command: |
+          cd /home/ubuntu/ && java -jar mirage-search-0.0.1-SNAPSHOT.jar &
+        name: ‘mirage-search-0.0.1-SNAPSHOT.jar'
+        path: 'mirage-search-0.0.1-SNAPSHOT.jar'
         
 #     - name: Run a script on remote server (start the application)
 #       if: always()
