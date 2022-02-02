@@ -50,7 +50,7 @@ jobs:
         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
         source: "mirage-search-0.0.1-SNAPSHOT.jar"
-        target: "/home/ubuntu"
+        target: "/home/runner/work/Tadvaya/Tadvaya"
     
     - name: Run jar file
       run: |
