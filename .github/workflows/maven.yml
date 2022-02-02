@@ -44,7 +44,7 @@ jobs:
 #     - name: copy file via ssh key
 #       uses: appleboy/scp-action@master
 #       env:
-#         HOST: ${{ secrets.HOST }}
+#         HOST: 3.6.91.95
 #         USERNAME: ${{ secrets.USERNAME }}
 #         PORT: ${{ secrets.PORT }}
 #         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
