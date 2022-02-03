@@ -52,23 +52,23 @@ jobs:
 #         source: "mirage-search-0.0.1-SNAPSHOT.jar"
 #         target: "."
     
-    - name: Run jar file
-      run: |
-        java -jar mirage-generate-0.0.1-SNAPSHOT.jar
+#     - name: Run jar file
+#       run: |
+#         java -jar mirage-generate-0.0.1-SNAPSHOT.jar
         
-#     - name: Run a generate script on remote server (start the application)
-#       if: always()
-#       uses: actions/upload-artifact@v1
-#       env:
-#         HOST: 3.6.91.95
-#         USERNAME: ${{ secrets.USERNAME }}
-#         PORT: ${{ secrets.PORT }}
-#         KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-#       with:
-# #         command: |
-# #           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
-#         name: ‘mirage-generate-0.0.1-SNAPSHOT.jar'
-#         path: '/home/runner/work/Tadvaya/Tadvaya'
+    - name: Run a generate script on remote server (start the application)
+      if: always()
+      uses: actions/upload-artifact@v1
+      env:
+        HOST: 3.6.91.95
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      with:
+#         command: |
+#           cd /home/ubuntu/ && java -jar mirage-generate-0.0.1-SNAPSHOT.jar &
+        name: ‘mirage-generate-0.0.1-SNAPSHOT.jar'
+        path: '/home/runner/work/Tadvaya/Tadvaya'
         
 #     - name: Run a search script on remote server (start the application)
 #       if: always()
